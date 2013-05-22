@@ -11,9 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308144915) do
+ActiveRecord::Schema.define(:version => 20130522192459) do
 
   create_table "posable_ones", :force => true do |t|
+    t.string  "text"
+    t.boolean "private"
+  end
+
+  create_table "posable_parents", :force => true do |t|
+    t.string  "type"
     t.string  "text"
     t.boolean "private"
   end
