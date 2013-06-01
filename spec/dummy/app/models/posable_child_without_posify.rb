@@ -1,0 +1,2 @@
+class PosableChildWithoutPosify < PosableParent
+end

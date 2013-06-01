@@ -86,12 +86,20 @@ module Pose
           expect(result).to eq({ PosableParent => [pos] })
         end
 
-        it 'works for STI children' do
+        it 'works for STI children without posify blocks' do
           pending 'broken - does not find anything'
           
-          pos = PosableChild.create text: 'foo'
-          result = Pose.search 'foo', PosableChild
-          expect(result).to eq({ PosableChild => [pos] })
+          pos = PosableChildWithoutPosify.create text: 'foo'
+          result = Pose.search 'foo', PosableChildWithoutPosify
+          expect(result).to eq({ PosableChildWithoutPosify => [pos] })
+        end
+
+        it 'works for STI children with posify blocks' do
+          pending 'broken - does not find anything'
+          
+          pos = PosableChildWithPosify.create text: 'foo'
+          result = Pose.search 'foo', PosableChildWithPosify
+          expect(result).to eq({ PosableChildWithPosify => [pos] })
         end
       end
 

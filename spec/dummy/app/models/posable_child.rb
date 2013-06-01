@@ -1,2 +1,0 @@
-class PosableChild < PosableParent
-end
