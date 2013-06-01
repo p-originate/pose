@@ -78,19 +78,21 @@ module Pose
         result = Pose.search 'foo', PosableOne
         expect(result).to eq({ PosableOne => [pos] })
       end
-      
-      it 'works for STI parents' do
-        pos = PosableParent.create text: 'foo'
-        result = Pose.search 'foo', PosableParent
-        expect(result).to eq({ PosableParent => [pos] })
-      end
 
-      it 'works for STI children' do
-        pending 'broken - does not find anything'
-        
-        pos = PosableChild.create text: 'foo'
-        result = Pose.search 'foo', PosableChild
-        expect(result).to eq({ PosableChild => [pos] })
+      describe 'STI' do
+        it 'works for STI parents' do
+          pos = PosableParent.create text: 'foo'
+          result = Pose.search 'foo', PosableParent
+          expect(result).to eq({ PosableParent => [pos] })
+        end
+
+        it 'works for STI children' do
+          pending 'broken - does not find anything'
+          
+          pos = PosableChild.create text: 'foo'
+          result = Pose.search 'foo', PosableChild
+          expect(result).to eq({ PosableChild => [pos] })
+        end
       end
 
       describe 'classes parameter' do
